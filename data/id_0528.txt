@@ -1,0 +1,7 @@
+id: 0528
+nombre: Nando
+apellido: Srz
+titulo: Aprende de Mclarens
+autor: Ñañaya
+editorial: P15
+año: 2024

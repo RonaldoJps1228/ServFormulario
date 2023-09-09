@@ -27,14 +27,6 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage })
 
-app.get('/', (req, res) => {
-  res.send('Hola mundo')
-})
-
-app.get('/unicosta', (req, res) => {
-  res.send('Hola desde la pagina Unicosta')
-})
-
 app.post('/formulario', upload.single('file'), (req, res) => {
     console.log(req.body)
     const { id, nombre, apellido, titulo, autor, editorial, anho } = req.body
@@ -54,7 +46,7 @@ app.post('/formulario', upload.single('file'), (req, res) => {
     fs.writeFile(path.join('data/', nombreArchivo), contenidoArchivo, (err) => {
       if (err) {
         console.error(err)
-        return res.status(500).send('Error al guardar el archivo.')
+        return res.redirect('/error.html')
       }
   
       // Redirige al usuario a la página de descarga del archivo
